@@ -176,6 +176,7 @@ public class LoginServer implements Runnable, LoginServerMBean {
     @Override
     public void run() {
         try {
+            log.info("Starting to run");
             FileReader fileReader = new FileReader(System.getProperty("login.config"));
             log.info("Got login config");
             initialProp.load(fileReader);
