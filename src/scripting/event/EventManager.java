@@ -78,6 +78,8 @@ public class EventManager {
                 } catch (NoSuchMethodException ex) {
                     System.out.println("Event name : " + name + ", method Name : " + methodName + ":\n" + ex);
                     FilePrinter.printError(FilePrinter.ScriptEx_Log, "Event name : " + name + ", method Name : " + methodName + ":\n" + ex);
+                } catch (Exception ex) {
+                    System.out.println("Exception: " + ex );
                 }
             }
         }, delay);
