@@ -30,7 +30,6 @@ public class WorldServer {
             is = new FileReader("Jogo/Configuracao/LeaderMS.properties");
             worldProp.load(is);
             is.close();
-            log.info("Successfully configured");
         } catch (Exception e) {
             log.error("Could not configuration", e);
         }
@@ -60,7 +59,6 @@ public class WorldServer {
             Registry registry = LocateRegistry.createRegistry(Registry.REGISTRY_PORT,
                     new SslRMIClientSocketFactory(), new SslRMIServerSocketFactory());
             registry.rebind("WorldRegistry", WorldRegistryImpl.getInstance());
-            log.info("Done binding");
         } catch (RemoteException ex) {
             log.error("Could not initialize RMI system", ex);
         }
