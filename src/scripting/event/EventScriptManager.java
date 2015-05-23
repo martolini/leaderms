@@ -77,6 +77,8 @@ public class EventScriptManager extends AbstractScriptManager {
                 Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NoSuchMethodException ex) {
                 Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
+                Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
