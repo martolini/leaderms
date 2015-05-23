@@ -186,8 +186,11 @@ public class LoginServer implements Runnable, LoginServerMBean {
             Registry registry = LocateRegistry.getRegistry(initialProp.getProperty("world.host"), Registry.REGISTRY_PORT, new SslRMIClientSocketFactory());
             log.info("Found World hsot registry");
             worldRegistry = (WorldRegistry) registry.lookup("WorldRegistry");
+            log.info("Did lookup");
             lwi = new LoginWorldInterfaceImpl();
+            log.info("created loginworldinterfaceimpl");
             wli = worldRegistry.registerLoginServer(initialProp.getProperty("login.key"), lwi);
+            log.info("Did register login server");
             Properties dbProp = new Properties();
             fileReader = new FileReader("Jogo/BancoDados/db.properties");
             log.info("Found db properties");
