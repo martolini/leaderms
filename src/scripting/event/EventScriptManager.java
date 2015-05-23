@@ -69,7 +69,8 @@ public class EventScriptManager extends AbstractScriptManager {
     }
 
     public void init() {
-        for (EventEntry entry : events.values())
+        for (EventEntry entry : events.values()) {
+            System.out.println("Script: " + entry.script);
             try {
                 ((ScriptEngine) entry.iv).put("em", entry.em);
                 entry.iv.invokeFunction("init", (Object) null);
@@ -77,9 +78,8 @@ public class EventScriptManager extends AbstractScriptManager {
                 Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
             } catch (NoSuchMethodException ex) {
                 Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (Exception ex) {
-                Logger.getLogger(EventScriptManager.class.getName()).log(Level.SEVERE, null, "Script is " + entry.script);
             }
+        }
     }
 
     public void cancel() {
